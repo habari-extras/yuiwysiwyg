@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>YUI 2.0 WYSIWYG Editor</name>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+	<url>http://habariproject.org/</url>
+	<author url="http://habariproject.org/">Habari Community</author>
+	<version>1.0</version>
+	<description><![CDATA[Publish posts using the YUI WYSIWYG editor.]]></description>
+	<copyright>2011</copyright>
+	<guid>7113c37e-285a-4915-b699-32e94782f5f9</guid>
+
+	<help>
+	<value><![CDATA[
+	Provides a rich editing environment using the YUI WYSIWYG Javascript
+	library. Find out more about the YUI editor at
+	<a href="http://developer.yahoo.com/yui/editor/">http://developer.yahoo.com/yui/editor/</a>
+	]]></value>
+	</help>
+    
+</pluggable>
+ 
