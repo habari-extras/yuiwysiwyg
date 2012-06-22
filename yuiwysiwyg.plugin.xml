@@ -3,7 +3,7 @@
 	<name>YUI 2.0 WYSIWYG Editor</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<url>http://habariproject.org/</url>
-	<author url="http://habariproject.org/">Habari Community</author>
+	<author url="http://habariproject.org/">The Habari Community</author>
 	<version>1.0</version>
 	<description><![CDATA[Publish posts using the YUI WYSIWYG editor.]]></description>
 	<copyright>2011</copyright>
@@ -14,6 +14,7 @@
 	Provides a rich editing environment using the YUI WYSIWYG Javascript
 	library. Find out more about the YUI editor at
 	<a href="http://developer.yahoo.com/yui/editor/">http://developer.yahoo.com/yui/editor/</a>
+	<p><strong>The editor needs to be enabled in your <a href="user#yuiwysiwyg">User Options</a>.</strong></p>
 	]]></value>
 	</help>
     

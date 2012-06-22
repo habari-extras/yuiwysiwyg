@@ -87,7 +87,8 @@ text-align: left;
 		        width: '100%',
 		        animate: true,
 		        dompath: true,
-		        focusAtStart: true
+		        focusAtStart: true,
+				handleSubmit: true
 		    };
 
 		    var state = 'off';
