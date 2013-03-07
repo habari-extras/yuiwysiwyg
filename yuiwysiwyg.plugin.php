@@ -114,7 +114,7 @@ class YUIWYSIWYG extends Plugin
 				}
 			}
 YUIWYSIWYG;
-		Stack::add( 'admin_footer_javascript', $js, 'yui_editor_footer', 'jquery' );
+		Stack::add( 'admin_footer_javascript', $js, 'yui_editor_footer' );
 	}
 
 	/**
