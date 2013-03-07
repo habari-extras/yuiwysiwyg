@@ -1,0 +1,39 @@
+.editor-hidden {
+    visibility: hidden;
+    top: -9999px;
+    left: -9999px;
+    position: absolute;
+}
+textarea {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+.yui-skin-sam #page .container h2 {
+color: black;
+font-weight: bold;
+margin: 0;
+padding: .3em 1em;
+font-size: 100%;
+text-align: left;
+}
+.yui-skin-sam #page .container h3 {
+color: gray;
+font-size: 75%;
+margin: 1em 0 0;
+padding-bottom: 0;
+padding-left: .25em;
+text-align: left;
+}
+#content {
+	border: 0px;
+	margin: 0px;
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-mox-border-radius: 0px;
+	padding: 0px;
+	height: 300px;
+}
+.yui-editor-panel {
+	z-index: 100 !important;
+}
