@@ -5,8 +5,8 @@ class YUIWYSIWYG extends Plugin
 
 	public function action_admin_header($theme)
 	{
-		if ( ( $theme->page == 'publish' ) ) { // && User::identify()->info->yuiwysiwyg_activate ) {
-			Plugins::act('add_yuieditor_admin');
+		if ( ( $theme->page == 'publish' ) && User::identify()->info->yuiwysiwyg_activate ) {
+			Plugins::act( 'add_yuieditor_admin' );
 		}
 	}
 
@@ -122,13 +122,12 @@ YUIWYSIWYG;
 	 **/
 	public function action_form_user( $form, $user )
 	{
-		$fieldset = $form->append( 'wrapper', 'yuiwysiwyg', 'JWYSIWYG' );
+		$fieldset = $form->append( 'wrapper', 'yuiwysiwyg', 'WYSIWYG' );
 		$fieldset->class = 'container settings';
 		$fieldset->append( 'static', 'yuiwysiwyg', '<h2>YUI WYSIWYG</h2>' );
 
-		$activate = $fieldset->append( 'checkbox', 'yuiwysiwyg_activate', 'null:null', _t('Enable YUI WYSIWYG:'), 'optionscontrol_checkbox' );
+		$activate = $fieldset->append( 'checkbox', 'yuiwysiwyg_activate', 'user:yuiwysiwyg_activate', _t('Enable YUI WYSIWYG:'), 'optionscontrol_checkbox' );
 		$activate->class[] = 'item clear';
-		$activate->value = $user->info->yuiwysiwyg_activate;
 
 		$form->move_before( $fieldset, $form->page_controls );
 	}
