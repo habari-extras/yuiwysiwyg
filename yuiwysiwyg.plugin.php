@@ -5,13 +5,14 @@ class YUIWYSIWYG extends Plugin
 
 	public function action_admin_header($theme)
 	{
-		if ( $theme->page == 'publish' ) {
+		if ( ( $theme->page == 'publish' ) ) { // && User::identify()->info->yuiwysiwyg_activate ) {
 			Plugins::act('add_yuieditor_admin');
 		}
 	}
 
 	public function action_add_yuieditor_admin()
 	{
+
 		Stack::add('admin_header_javascript', 'http://yui.yahooapis.com/combo?2.8.2r1/build/yahoo-dom-event/yahoo-dom-event.js&2.8.2r1/build/container/container_core-min.js&2.8.2r1/build/menu/menu-min.js&2.8.2r1/build/element/element-min.js&2.8.2r1/build/button/button-min.js&2.8.2r1/build/editor/editor-min.js', 'yui_editor', 'jquery');
 //		Stack::add('admin_header_javascript', 'http://yui.yahooapis.com/2.8.2r1/build/yahoo-dom-event/yahoo-dom-event.js', 'yui_dom', 'jquery');
 //		Stack::add('admin_header_javascript', 'http://yui.yahooapis.com/2.8.2r1/build/element/element-min.js ', 'yui_element', 'yui_dom');
@@ -19,21 +20,10 @@ class YUIWYSIWYG extends Plugin
 //		Stack::add('admin_header_javascript', 'http://yui.yahooapis.com/2.8.2r1/build/menu/menu-min.js', 'yui_menu', 'yui_container');
 //		Stack::add('admin_header_javascript', 'http://yui.yahooapis.com/2.8.2r1/build/button/button-min.js', 'yui_button', 'yui_container');
 //		Stack::add('admin_header_javascript', 'http://yui.yahooapis.com/2.8.2r1/build/editor/editor-min.js', 'yui_editor', 'yui_container');
-		Stack::add('admin_stylesheet', array('http://yui.yahooapis.com/2.8.2r1/build/assets/skins/sam/skin.css', 'screen'), 'yuieditor');
-		Stack::add('admin_stylesheet', array($this->get_url(true) . 'editor.css','screen' ),'more_yuieditor','yui_editor' );
-	}
+		Stack::add('admin_stylesheet', array('http://yui.yahooapis.com/2.8.2r1/build/assets/skins/sam/skin.css', 'screen'), 'yui_editor_header');
+		Stack::add('admin_stylesheet', array($this->get_url(true) . 'editor.css', 'screen' ), 'more_yuieditor', 'yui_editor_header' );
 
-	public function action_add_yuieditor_template()
-	{
-		Stack::add('template_header_javascript', $this->get_url() . '/jwysiwyg/jquery.wysiwyg.js');
-		Stack::add('admin_stylesheet', array('http://yui.yahooapis.com/2.8.2r1/build/assets/skins/sam/skin.cs', 'screen'), 'yuieditor');
-	}
-
-	public function action_admin_footer($theme)
-	{
-		if ( ( $theme->page == 'publish' ) && User::identify()->info->yuiwysiwyg_activate ) {
-			echo <<<YUIWYSIWYG
-			<script type="text/javascript">
+		$js = <<<YUIWYSIWYG
 			$('label[for=content]').hide();
 			var myEditor;
 			$(function(){
@@ -123,9 +113,14 @@ class YUIWYSIWYG extends Plugin
 					myEditor.execCommand('inserthtml', value);
 				}
 			}
-			</script>
 YUIWYSIWYG;
-		}
+		Stack::add( 'admin_footer_javascript', $js, 'yui_editor_footer', 'jquery' );
+	}
+
+	public function action_add_yuieditor_template()
+	{
+		Stack::add('template_header_javascript', $this->get_url() . '/jwysiwyg/jquery.wysiwyg.js');
+		Stack::add('admin_stylesheet', array('http://yui.yahooapis.com/2.8.2r1/build/assets/skins/sam/skin.css', 'screen'), 'yui_editor');
 	}
 
 	/**
