@@ -20,7 +20,7 @@ class YUIWYSIWYG extends Plugin
 //		Stack::add('admin_header_javascript', 'http://yui.yahooapis.com/2.8.2r1/build/menu/menu-min.js', 'yui_menu', 'yui_container');
 //		Stack::add('admin_header_javascript', 'http://yui.yahooapis.com/2.8.2r1/build/button/button-min.js', 'yui_button', 'yui_container');
 //		Stack::add('admin_header_javascript', 'http://yui.yahooapis.com/2.8.2r1/build/editor/editor-min.js', 'yui_editor', 'yui_container');
-		Stack::add('admin_stylesheet', array('http://yui.yahooapis.com/2.8.2r1/build/assets/skins/sam/skin.css', 'screen'), 'yui_editor_header');
+		Stack::add('admin_stylesheet', array('http://yui.yahooapis.com/2.8.2r1/build/assets/skins/sam/skin.css', 'screen'), 'yui_editor_header', 'admin-css' );
 		Stack::add('admin_stylesheet', array($this->get_url(true) . 'editor.css', 'screen' ), 'more_yuieditor', 'yui_editor_header' );
 
 		$js = <<<YUIWYSIWYG
@@ -115,12 +115,6 @@ class YUIWYSIWYG extends Plugin
 			}
 YUIWYSIWYG;
 		Stack::add( 'admin_footer_javascript', $js, 'yui_editor_footer', 'jquery' );
-	}
-
-	public function action_add_yuieditor_template()
-	{
-		Stack::add('template_header_javascript', $this->get_url() . '/jwysiwyg/jquery.wysiwyg.js');
-		Stack::add('admin_stylesheet', array('http://yui.yahooapis.com/2.8.2r1/build/assets/skins/sam/skin.css', 'screen'), 'yui_editor');
 	}
 
 	/**
